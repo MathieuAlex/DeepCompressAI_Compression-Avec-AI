@@ -2,7 +2,23 @@
 __pycache__/
 *.py[codz]
 *$py.class
+# IDE PyCharm
+.idea/
 
+# Modèles entraînés (trop lourds)
+saved_models/
+*.pt
+*.pth
+
+# Dataset
+data/
+
+# Wandb
+wandb/
+
+# Python
+__pycache__/
+*.pyc
 # C extensions
 *.so
 
