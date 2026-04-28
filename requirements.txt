@@ -1,0 +1,33 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# DeepCompressAI – requirements
+# Install with:
+#   pip install -r requirements.txt
+#
+# PyTorch is installed from the official CUDA 12.1 wheel index so that the
+# correct CUDA-enabled binaries are fetched automatically.
+# ──────────────────────────────────────────────────────────────────────────────
+
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Core deep-learning framework (CUDA 12.1 build)
+torch==2.6.0
+torchvision==0.21.0
+
+# Scientific computing
+numpy==1.26.4
+scipy==1.13.0
+
+# Image I/O
+Pillow==10.4.0
+
+# Image quality metric (MS-SSIM)
+pytorch-msssim==1.0.0
+
+# Experiment tracking
+wandb==0.18.0
+
+# Progress bars
+tqdm==4.66.4
+
+# Tensor manipulation helpers
+einops==0.8.0
