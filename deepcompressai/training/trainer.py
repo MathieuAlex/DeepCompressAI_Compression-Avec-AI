@@ -106,7 +106,7 @@ class Trainer:
         self.scheduler = ReduceLROnPlateau(
             self.optimizer, mode="min", factor=0.5, patience=5
         )
-        self.scaler = torch.amp.GradScaler(enabled=self.device.type == "cuda")
+        self.scaler = torch.amp.GradScaler("cuda", enabled=self.device.type == "cuda")
 
         self.use_wandb = use_wandb and _WANDB_AVAILABLE
         if self.use_wandb:
