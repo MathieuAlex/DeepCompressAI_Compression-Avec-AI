@@ -1,0 +1,19 @@
+# Modèles entraînés (trop lourds pour git)
+*.pt
+*.pth
+*.ckpt
+
+# Dataset
+data/
+datasets/
+
+# Wandb logs
+wandb/
+
+# Images de sortie
+outputs/
+*.png
+*.jpg
+
+# Jupyter
+.ipynb_checkpoints/

@@ -1,0 +1,40 @@
+@echo off
+title DeepCompress - Serveur de Compression IA
+color 0A
+
+echo ============================================================
+echo         DeepCompress - Serveur de Compression IA
+echo ============================================================
+echo.
+
+REM Vérifier si Python est installé
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo ERREUR: Python n'est pas installé ou n'est pas dans le PATH
+    echo Veuillez installer Python et réessayer
+    pause
+    exit /b 1
+)
+
+REM Extraire le modèle si nécessaire
+if exist "saved_models\compression_model_2000000.rar" (
+    if not exist "saved_models\compression_model_2000000.pt" (
+        echo Extraction du modèle en cours...
+        if exist "C:\Program Files\WinRAR\WinRAR.exe" (
+            "C:\Program Files\WinRAR\WinRAR.exe" x -y "saved_models\compression_model_2000000.rar" "saved_models\"
+        ) else if exist "C:\Program Files\7-Zip\7z.exe" (
+            "C:\Program Files\7-Zip\7z.exe" x "saved_models\compression_model_2000000.rar" -o"saved_models\"
+        ) else (
+            echo ATTENTION: Modèle au format RAR détecté
+            echo Veuillez extraire manuellement compression_model_2000000.rar
+            echo dans le dossier saved_models/
+            pause
+            exit /b 1
+        )
+    )
+)
+
+echo Lancement du serveur...
+python launch_server.py
+
+pause
